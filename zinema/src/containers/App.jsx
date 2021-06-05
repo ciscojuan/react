@@ -7,12 +7,12 @@ import Carousel from '../components/Carousel';
 import CarouselItem from '../components/CarouselItem';
 import Footer from '../components/Footer';
 import '../assets/styles/App.scss'
-import useTvShowsApi from '../hooks/useTvShowsApi';
+import useInitialState from '../hooks/useInitialState';
 
 const API = 'http://localhost:3001/initalState';
 //      Hoock
 const App = () => {
-    const initialState = useTvShowsApi(API);
+    const initialState = useInitialState(API);
     return initialState.length === 0 ? <h1>Loading...</h1> : (
         <Layout>
             <Header />

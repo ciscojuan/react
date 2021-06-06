@@ -14,8 +14,8 @@ const API = 'http://localhost:3001/initalState';
 const Home = () => {
     const initialState = useInitialState(API);
     return initialState.length === 0 ? <h1>Loading...</h1> : (
-        <Layout>
-            <Header />
+
+            <>
             <Search />
             
             {initialState.mylist.length > 0 && (
@@ -43,8 +43,8 @@ const Home = () => {
                     )}
                 </Carousel>
             </Categories>
-            <Footer />
-        </Layout>
+
+        </>
     );
 }
 

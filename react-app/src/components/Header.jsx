@@ -1,4 +1,5 @@
 import React from 'react';
+import {NavLink} from 'react-router-dom';
 import Logo from '../assets/images/react.svg';
 
 const Header = () => {
@@ -9,7 +10,7 @@ const Header = () => {
                 <div id="logo">
                     <img src={Logo} className="app-logo" alt="Logotipo" />
                     <span id="brand">
-                        <strong>Curso</strong>React
+                        <strong>Curso de React</strong>
                     </span>
                 </div>
 
@@ -17,19 +18,13 @@ const Header = () => {
                 <nav id="menu">
                     <ul>
                         <li>
-                            <a href="index.html">Inicio</a>
+                            <a href="index.html"><NavLink to="/home" exact activeClassName="active">Inicio</NavLink></a>
                         </li>
                         <li>
-                            <a href="blog.html">Blog</a>
+                            <a href="blog.html"><NavLink to="films" exact activeClassName="active">Peliculas MCU</NavLink></a>
                         </li>
                         <li>
-                            <a href="formulario.html">Formulario</a>
-                        </li>
-                        <li>
-                            <a href="#">Pagina 1</a>
-                        </li>
-                        <li>
-                            <a href="#">Pagina 2</a>
+                            <a href="formulario.html"><NavLink to="characters" exact activeClassName="active">Personajes MCU</NavLink></a>
                         </li>
                     </ul>
                 </nav>

@@ -18,13 +18,13 @@ const Header = () => {
                 <nav id="menu">
                     <ul>
                         <li>
-                            <a href="index.html"><NavLink to="/home" exact activeClassName="active">Inicio</NavLink></a>
+                            <NavLink to="/home" exact activeClassName="active">Inicio</NavLink>
                         </li>
                         <li>
-                            <a href="blog.html"><NavLink to="films" exact activeClassName="active">Peliculas MCU</NavLink></a>
+                            <NavLink to="films" exact activeClassName="active">Peliculas MCU</NavLink>
                         </li>
                         <li>
-                            <a href="formulario.html"><NavLink to="characters" exact activeClassName="active">Personajes MCU</NavLink></a>
+                            <NavLink to="characters" exact activeClassName="active">Personajes MCU</NavLink>
                         </li>
                     </ul>
                 </nav>

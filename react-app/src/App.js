@@ -5,6 +5,7 @@ import Header from './components/Header';
 import Slider from './components/Slider';
 import SideBar from './components/sidebar';
 import Footer from './components/Footer';
+
 import './assets/css/styles.css';
 import './assets/css/App.css';
 

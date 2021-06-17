@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {NavLink} from 'react-router-dom';
 
 class SideBar extends Component {
     render() {
@@ -7,7 +8,7 @@ class SideBar extends Component {
                 {this.props.visible === "true" &&
                     <div id="nav-blog" className="sidebar-item">
                         <h3>Puedes hacer esto</h3>
-                        <a href="#" className="btn btn-success">Crear artículo</a>
+                        <NavLink to="/new" className="btn btn-success">Crear artículo</NavLink>
                     </div>
                 }
 

@@ -4,14 +4,17 @@ import Home from './containers/Home';
 import Articles from './containers/Articles';
 import Characters from './containers/Characters';
 import Error from './components/Error';
+import Form from './containers/Form';
 
 const Router = () => {
     return (
         <Switch>
+            <Route exact path="/" component={Home} />
             <Route exact path="/home" component={Home} />
             <Route exact path="/films" component={Articles} />
             <Route exact path="/characters" component={Characters} />
             <Route exact path="/characters/:id" component={Characters} />
+            <Route exact path="/new" component={Form} />
             <Route component={Error} />
         </Switch>
     )

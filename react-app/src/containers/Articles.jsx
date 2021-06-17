@@ -15,7 +15,7 @@ class Articles extends Component {
         ],
         nombre: "Juan Pablo Ramirez"
     };
-
+    
     render() {
 
         return (
@@ -44,7 +44,7 @@ class Articles extends Component {
                 <SideBar 
                 visible="true"/>
             </div>
-</>
+    </>
 
 
         )

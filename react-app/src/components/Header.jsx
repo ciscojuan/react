@@ -2,7 +2,8 @@ import React from 'react';
 import {NavLink} from 'react-router-dom';
 import Logo from '../assets/images/react.svg';
 
-const Header = () => {
+const Header = (props) => {
+
     return (
         <header id="header">
             <div className="center">
@@ -21,11 +22,9 @@ const Header = () => {
                             <NavLink to="/home" exact activeClassName="active">Inicio</NavLink>
                         </li>
                         <li>
-                            <NavLink to="films" exact activeClassName="active">Peliculas MCU</NavLink>
+                            <NavLink to="/articles" exact activeClassName="active">Peliculas MCU</NavLink>
                         </li>
-                        <li>
-                            <NavLink to="characters" exact activeClassName="active">Personajes MCU</NavLink>
-                        </li>
+
                     </ul>
                 </nav>
                 {/*LIMPIAR FLOTADOS*/}

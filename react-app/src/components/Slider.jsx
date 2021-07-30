@@ -1,15 +1,15 @@
-import React, {useState, Component} from 'react';
+import React, {Component} from 'react';
+import {NavLink} from 'react-router-dom';
 
 class Slider extends Component{
     render(){
-        console.log(this.props)
         return (
         
             <div id="slider" className={this.props.className}>
                 
                 <h1>{this.props.title}</h1>
                 {this.props.button &&
-                    <a href="#" className="btn-white">{this.props.button}</a>
+                    <NavLink to="#" className="btn-white">{this.props.button}</NavLink>
                 }
 
                 
@@ -18,7 +18,7 @@ class Slider extends Component{
     }
 }
 /* const Slider = () => {
-    {console.log(this.props)}
+
     const [contador, setcontador] = useState(0)
     return (
         

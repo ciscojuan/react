@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 
 export default function TaskSearch({searchValue, setSearchValue}) {
 
@@ -15,7 +15,6 @@ export default function TaskSearch({searchValue, setSearchValue}) {
         onChange={onEvent} 
       />
 
-      <p>{searchValue}</p>
     </>
   )
 }

@@ -13,7 +13,18 @@ const defaultTasks = [
 
 function App() {
 
-  const [tasks, setTasks] = useState(defaultTasks)
+    //localstorage values
+    const localStorageTodos = localStorage.getItem('TASKS_V1');
+    let parsedTasks;
+  
+    if (!localStorageTodos) {
+      localStorage.setItem('TASKS_V1', JSON.stringify([]));
+      parsedTasks = [];
+    } else {
+      parsedTasks = JSON.parse(localStorageTodos);
+    }
+    
+  const [tasks, setTasks] = useState(parsedTasks)
   const [searchValue, setSearchValue] = useState('')
 
   //recorjerr el total de tasks conestado complete
@@ -33,6 +44,32 @@ function App() {
       return taskLower.includes(searchText);
     })
   }
+
+  // Creamos la función en la que actualizaremos nuestro localStorage
+  const saveTasks = (newTasks) => {
+    // Convertimos a string nuestros TODOs
+    const stringifiedTodos = JSON.stringify(newTasks);
+    // Los guardamos en el localStorage
+    localStorage.setItem('TODOS_V1', stringifiedTodos);
+    // Actualizamos nuestro estado
+    setTasks(newTasks);
+  };
+
+  //check task completed
+  const completedTask = (text) => {
+    const taskIndex = tasks.findIndex(task => task.text === text);
+    const newTasks = [...tasks];
+    newTasks[taskIndex].completed = true;
+    // Cada que el usuario interactúe con nuestra aplicación se guardarán los TODOs con nuestra nueva función
+    saveTasks(newTasks);
+  }; 
+
+  const deleteTask = (text) => {
+    const taskIndex = tasks.findIndex(task => task.text === text);
+    const newTasks = [...tasks];
+    newTasks.splice(taskIndex, 1);
+    saveTasks(newTasks);
+  };
   return (
    <>
       <TaskCounter
@@ -48,6 +85,8 @@ function App() {
              key={task.text}
              text={task.text}
              status={task.completed}
+             onCompleted={() => completedTask(task.text)}
+             onDelete={() => deleteTask(task.text)}
              />
         ))}
       </TaskList>

@@ -1,18 +1,22 @@
-import React from 'react';
+import React, {useState} from 'react';
 
-export default function TaskSearch(props) {
+export default function TaskSearch({searchValue, setSearchValue}) {
 
   const onEvent = (e) => {
     console.log(e.target.value);
-    onEvent(e.target.value)
+    setSearchValue(e.target.value);
   }
   return (
+    <>
       <input
         className='task-search'
         placeholder="Search a task"
-        value={props.searchValue}
+        value={searchValue}
         onChange={onEvent} 
       />
+
+      <p>{searchValue}</p>
+    </>
   )
 }
 export {TaskSearch};

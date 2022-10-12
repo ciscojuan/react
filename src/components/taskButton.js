@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default function TaskButton(props) {
-  const onClickButton = (message)=>{
+  const onClickButton = (message) => {
     alert(message);
   }
   return (

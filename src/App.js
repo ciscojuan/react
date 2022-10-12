@@ -1,63 +1,58 @@
-import React from 'react';
-import {TaskCounter} from './components/taskCounter';
-import {TaskSearch } from './components/taskSearch';
+import react, {useState} from "react";
+import {TaskCounter} from "./components/taskCounter";
+import {TaskSearch} from './components/taskSearch';
 import {TaskList} from './components/taskList';
 import {TaskItem} from './components/taskItem';
 import {TaskButton} from './components/taskButton';
-import './styles.css';  
-
-
-const defaultTask = [
-  {task:'Terminar curso de Angular y Node de Udemy', completed: true},
-  {task:'Presentar examen LCSPC', completed: true},
-  {task:'Leer modulos AZ-500', completed: false},
-  {task:'Aprobar examen AZ-500', completed: true}
-]
+import './styles.css'
+const defaultTasks = [
+  {text:'Cortar cebolla', completed:true},
+  {text:'Tormar el curso de intro a react', completed:false},
+  {text:'Llorar con la llorona', completed:false}
+];
 
 function App() {
 
-  const [tasks, setTasks] = React.useState(defaultTask);
-  const [searchValue, setSearchValue] = React.useState('');
+  const [tasks, setTasks] = useState(defaultTasks)
+  const [searchValue, setSearchValue] = useState('')
 
-  const completedTasks = tasks.filter(task => !!task.completed).length;
-  const totalTasks = tasks.length;
+  //recorjerr el total de tasks conestado complete
+  const taskCompleted = tasks.filter(task => !!task.completed).length
+  const totalTask = tasks.length;
 
   let searchedTasks = [];
 
-  if (!searchValue.length >= 1) {
+  //filtrar tasks por task ingresado
+  if(!searchValue.length >=1){
     searchedTasks = tasks;
-  } else {
-    searchedTasks = tasks.filter(todo => {
-      const todoText = todo.text.toLowerCase();
-      const searchText = searchValue.toLowerCase();
-      return todoText.includes(searchText);
-    });
+  }else{
+    searchedTasks = tasks.filter(task =>{
+      //get text to lowercase
+      const taskLower = task.text.toLocaleLowerCase();
+      const searchText = searchValue.toLocaleLowerCase();
+      return taskLower.includes(searchText);
+    })
   }
-
-  // Estado inicial de nuestros TODOs
-  
   return (
-    <>
-
-    <TaskCounter
-    total={totalTasks}
-    completed={completedTasks}
-    />
-    <TaskSearch
-    searchValue={searchValue}
-    setSearchValue={setSearchValue}
-    />
-    <TaskList>
-      {searchedTasks.map(task => (
+   <>
+      <TaskCounter
+        completed = {taskCompleted}
+        total = {totalTask} />    
+      <TaskSearch
+      searchValue = {searchValue}
+      setSearchValue = {setSearchValue}
+       />
+      <TaskList>
+        {searchedTasks.map(task => (
             <TaskItem
-              key={task.text}
-              text={task.text}
-              completed={task.completed}
-      />
-      ))}
-    </TaskList>
-    <TaskButton />
-    </>
+             key={task.text}
+             text={task.text}
+             status={task.completed}
+             />
+        ))}
+      </TaskList>
+      <TaskButton />      
+   </>
   );
 }
 

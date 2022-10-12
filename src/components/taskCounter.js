@@ -1,7 +1,7 @@
 import React from 'react';
-export default function TaskCounter(props) {
+export default function TaskCounter({total, completed}) {
   return (
-    <h2 className="counter">You have completed {props.completed} of {props.total} Tasks</h2>
+    <h2 className="counter">You have completed {completed} of {total} Tasks</h2>
   )
 }
 export {TaskCounter}
